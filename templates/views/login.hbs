@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .form_container div{
+            margin: 5px;
+            padding: 5px;
+        }
+        .form_container div input{
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+                    <div>
+                    <h3 style="margin-left: 20px;color:cornflowerblue">Login</h3>
+                    </div>
+            <form action="/login" method="POST">
+                <div class="form_container">
+
+                    <div>
+                    <input type="email" placeholder="Email" value="" name="email">
+
+                    </div>
+  
+                    <div>
+                    <input type="password" placeholder="Password" value="" name="password">
+
+                    </div>
+                    <div class="submit_button">
+                        <input type="submit" name="submit" value="Sign in">
+                        <span style="margin-left: 15px;margin-right: 15px;">or</span>
+                        <a href="/register" style="background-color: aquamarine;padding:7px;text-decoration: none;border:1px solid red;border-radius: 3px;" >Sign up</a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
