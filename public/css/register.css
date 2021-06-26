@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+.container{
+    background-image: url(https://bit.ly/35P7SNf);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row{
+    align-self: center;
+    background-color: rgb(218, 218, 218);
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.form_container{
+    padding: 15px;
+    padding-top: 40px;
+    width: 350px;
+    height: 550px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+}
+
+.heading{
+    position: absolute;
+    display: inline-block;
+    background-color:gray;
+    top: -24px;
+    left: 26px;
+    border: 1px solid white;
+    border-radius: 3px;
+    cursor: default;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.heading p{
+    color: white;
+}
+
+.form_container div{
+    padding: 10px;
+}
+
+.form_container div input{
+    padding: 10px;
+    width: 100%;     
+}
+.submit_button input{
+    border: 1px solid rgb(83, 83, 83);
+    cursor: pointer;
+    background-color: rgb(145, 145, 145);
+}
+input:focus{
+    outline: none;
+}
+.submit_button{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+.submit_button input:hover{
+    color: white;
+}
+.submit_button a{
+    text-align: center;
+    font-size: smaller;
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+    color: rgb(54, 54, 54);
+}
+.submit_button a:hover{
+    color: black;
+}

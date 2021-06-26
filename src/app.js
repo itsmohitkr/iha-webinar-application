@@ -14,6 +14,7 @@ require("./db/conn");
 const Register = require("./models/registers");
 const Register_Webinar = require("./models/reserveSpot");
 const Drop_query = require("./models/faq");
+const { connection } = require('mongoose');
 
 const static_path = path.join(__dirname, "../public");
 const template_path = path.join(__dirname, "../templates/views");
@@ -31,7 +32,7 @@ app.set("view engine", "hbs");
 app.set("views", template_path);
 hbs.registerPartials(partials_path);
 
-app.get("/",auth, (req, res) => {
+app.get("/",(req, res) => {
     res.render("index");
 })
 
@@ -106,7 +107,9 @@ app.post("/register", async (req, res) => {
                 expires: new Date(Date.now() + 3600000),
                 httpOnly: true
             });
-            const registered = await form_data.save();
+            const registered = await form_data.save(() => {
+                    console.log("successfully submitted sign up details");
+            });
             res.status(201).render("login");
         } else {
             res.send("passwords are not matching");
@@ -164,7 +167,9 @@ app.post("/webinar_registration", async (req, res) => {
             email: req.body.email,
             organisation: req.body.organisation
         })
-        const registered_spot = await reserve_spot_form_data.save();
+        const registered_spot = await reserve_spot_form_data.save(() => {
+            alert("hi");
+        });
         res.status(201).render("index");
     } catch (error) {
         // res.status(400).send(error);
@@ -192,3 +197,4 @@ app.post("/drop_query_feedback", async (req, res) => {
 app.listen(port, () => {
     console.log(`server has started at http://localhost:${port}`);
 })
+

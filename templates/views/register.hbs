@@ -4,49 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
     <title>Register</title>
-    <style>
-        .form_container div{
-            margin: 5px;
-            padding: 5px;
-        }
-        .form_container div input{
-            margin: 5px;
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <form action="/register" method="POST">
                 <div class="form_container">
-                    <div>
-                    <input type="text" placeholder="First Name" value="" name="firstname">
-
+                    <div class="heading">
+                        <p>Register</p>
                     </div>
                     <div>
-                    <input type="text" placeholder="Last Name" value="" name="lastname">
-
+                        <input type="text" placeholder="First Name" value="" name="firstname">
                     </div>
                     <div>
-                    <input type="email" placeholder="Email" value="" name="email">
-
+                        <input type="text" placeholder="Last Name" value="" name="lastname">
                     </div>
                     <div>
-                    <input type="text" placeholder="Phone no" value="" name="phone">
-
+                        <input type="email" placeholder="Email" value="" name="email">
                     </div>
                     <div>
-                    <input type="password" placeholder="Password" value="" name="password">
-
+                        <input type="text" placeholder="Phone no" value="" name="phone">
                     </div>
                     <div>
-                    <input type="password" placeholder="Confirm Password" value="" name="confirmpassword">
-
+                        <input type="password" placeholder="Password" value="" name="password">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Confirm Password" value="" name="confirmpassword">
                     </div>
                     <div class="submit_button">
-                        <input type="submit" name="submit" value="REGISTER">
+                        <input type="submit" name="submit" value="Sign up">
+                        <a href="/login">Already an account? Log In.</a>
                     </div>
                 </div>
             </form>
