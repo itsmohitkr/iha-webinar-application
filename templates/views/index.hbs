@@ -19,7 +19,7 @@
 
 <body>
     <!-- nav bar -->
-    <div style="background-color:white; min-width: 320px; position: fixed;width: 100%;border-bottom:1px solid #e0e0e0;
+    <div style="background-color:white; min-width: 320px; position: fixed;z-index: 10; width: 100%;border-bottom:1px solid #e0e0e0;
         border-image: linear-gradient(to right, transparent,rgb(209, 209, 209), transparent) 1;
 ">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -58,6 +58,25 @@
         </nav>
     </div>
 
+    <!-- top heading page -->
+
+    <div class="top_heading_container">
+        <div class="heading_row">
+                <div class="heading_column">
+                    <p id="iha_hide" style="font-size: 45px;font-weight: 500px;"><span style="color: #0571c0;">i</span>ha <span style="color: #0571c0;">m</span>edhas</p>
+                    <br>
+                    <p style="font-size: 20px;">- A forum for people and ideas.</p>
+                    <br>
+                    <a href="http://" id="head_btn">Register for webinar</a>
+                </div>
+                <div class="heading_column">
+                    <h2>Don't miss out <br> our upcoming webinar.</h2>
+                    <p>a platform to create a knowledge base to further exchange of ideas and views between 
+                        experts, scholars, students, employees and organisations. 
+                    </p>
+                </div>
+        </div>
+    </div>
 
 
     <!--What You Will Learn?-->
@@ -170,7 +189,7 @@
         </div>
 
         <!--reserve your spot section-->
-        <div class="container" style="padding-top: 50px;padding-bottom: 60px;">
+        <div class="container" id="reserve_post" style="padding-top: 50px;padding-bottom: 60px;">
 
             <div class="row">
                 <div class="col" style="text-align: center;">
@@ -204,7 +223,7 @@
                                 <input class="inp" type="text" placeholder="Full Name" value="" name="fullname">
                                 <input class="inp" type="email" placeholder="Email" value="" name="email">
                                 <input class="inp" type="text" placeholder="Organisation" value="" name="organisation">
-                                <button id="submit_btn" type="submit" name="submit" onclick="myfunction()">
+                                <button id="submit_btn" type="submit" name="submit">
                                     <span style="font-size:large;color: azure;">Register</span>
                                 </button>
                             </div>
@@ -494,9 +513,4 @@
 
     </div>
 </body>
-<script>
-    function myfunction(){
-        alert("Successfully Submitted");
-    }
-</script>
 </html> 

@@ -167,9 +167,7 @@ app.post("/webinar_registration", async (req, res) => {
             email: req.body.email,
             organisation: req.body.organisation
         })
-        const registered_spot = await reserve_spot_form_data.save(() => {
-            alert("hi");
-        });
+        const registered_spot = await reserve_spot_form_data.save();
         res.status(201).render("index");
     } catch (error) {
         // res.status(400).send(error);
