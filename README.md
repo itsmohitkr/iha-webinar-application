@@ -1,6 +1,6 @@
 <h3>hi 👋 everyone !! </h3>
 <hr>
-<p>I 💻 am currently Working on a website development that supports webinar's registrations , companys publications page, update about upcoming events 
+<p>I 💻 am currently Working on a website development that supports webinar's registrations features, companies publication page, update about upcoming events 
 along with their <strong>content management page</strong> for updating posts over the website. </p>
 
 <h3>these are my contribution to the project in my ongoing internship.</h3>
