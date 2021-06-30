@@ -40,6 +40,10 @@ app.get("/Publications",auth, (req, res) => {
     res.render("Publications");
 })
 
+app.get("/about",(req, res) => {
+    res.render("about");
+})
+
 app.get("/login", (req, res) => {
     res.render("login");
 })
