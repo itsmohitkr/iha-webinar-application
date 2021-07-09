@@ -16,6 +16,8 @@
     "express": "^4.17.1",
     "hbs": "^4.1.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.14"
+    "mongoose": "^5.12.14",
+    "nodemailer": "^6.6.2",
+    "validator": "^13.6.0"
   }
 }

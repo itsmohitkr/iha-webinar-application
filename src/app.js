@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require("cookie-parser");
 const auth = require("./middleware/auth");
 
+const nodemailer  = require('nodemailer ');
 const port = process.env.PORT || 5000;
 
 require("./db/conn");
@@ -114,7 +115,8 @@ app.post("/register", async (req, res) => {
             const registered = await form_data.save(() => {
                     console.log("successfully submitted sign up details");
             });
-            res.status(201).render("login");
+            // res.status(201).render("login");
+            res.status(201).redirect("/login");
         } else {
             res.send("passwords are not matching");
         }
@@ -127,7 +129,7 @@ app.post("/register", async (req, res) => {
 
 
 // login post 
-var name;
+
 
 app.post("/login", async (req, res) => {
     try {
@@ -152,6 +154,7 @@ app.post("/login", async (req, res) => {
             res.status(201).render("index", {
                 name: useremail_from_db.firstname,
             });
+
         } else {
             res.send("Invalid email or password");
         }
@@ -196,6 +199,35 @@ app.post("/drop_query_feedback", async (req, res) => {
         console.log(error);
     }
 })
+
+app.get('/cms', (req, res) => {
+    res.render('cms');
+})
+
+app.get('/show_email', async (req, res) => {
+    try {
+        const spot_data = await Register_Webinar.find();
+        res.render('cms', {
+            datas: spot_data,
+        });
+
+    } catch (error) {
+        res.send(error);
+    }
+})
+
+app.get('/show_feedback_queries', async (req, res) => {
+    try {
+        const feedback_data = await Drop_query.find();
+        res.render('cms', {
+            feedback: feedback_data,
+        });
+
+    } catch (error) {
+        res.send(error);
+    }
+})
+
 app.listen(port, () => {
     console.log(`server has started at http://localhost:${port}`);
 })

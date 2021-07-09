@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const validator = require('validator');
 
 // create schema 
 const registration_for_webinar = new mongoose.Schema({
-    fullname: {
+    fullname: { 
         type: String,
         touppercase:true,
         required: true
@@ -13,6 +14,7 @@ const registration_for_webinar = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        tolowercase:true,
         unique: true
     },
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="script/script.js"></script>
+    <title>Cms</title>
+</head>
+<body>
+    <form action="/show_email" method="GET">
+        <span>webinar registered Students</span>
+        <button>Show Details</button>
+    </form>
+    <table border="1" cellspacing="10" cellpadding="10" style="margin-top: 30px;">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Organisation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each datas as |data|}}
+                <tr>
+                    <td>{{data.fullname}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.organisation}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <hr>
+     <form action="/show_feedback_queries" method="GET">
+        <span>feedback and queries</span>
+        <button>Show Details</button>
+    </form>
+    <table border="1" cellspacing="10" cellpadding="10" style="margin-top: 30px;">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each feedback as |feedback|}}
+                <tr>
+                    <td>{{feedback.fullname}}</td>
+                    <td>{{feedback.email}}</td>
+                    <td>{{feedback.questions}}</td>
+                    <td>{{feedback.feedback}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <!--update faq-->
+    {{!-- <form action="/update_faq" method="POST">
+        <input type="text" name="Questions">
+        <input type="text" name="Answer">
+        <input type="submit">
+    </form> --}}
+    <hr>
+    <form action="">
+        <input type="text" id="set_time">
+        <button id="submit_btn" onclick="set_time()">SUBMIT</button>
+    </form>
+</body>
+</html>
