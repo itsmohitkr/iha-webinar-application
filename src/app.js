@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require("cookie-parser");
 const auth = require("./middleware/auth");
 
-const nodemailer  = require('nodemailer ');
+const nodemailer  = require('nodemailer');
 const port = process.env.PORT || 5000;
 
 require("./db/conn");
@@ -34,7 +34,10 @@ app.set("views", template_path);
 hbs.registerPartials(partials_path);
 
 app.get("/",(req, res) => {
-    res.render("index");
+    res.render("index", {
+        msg: '',
+        msg_drop:'',
+    });
 })
 
 app.get("/Publications",auth, (req, res) => {
@@ -175,14 +178,16 @@ app.post("/webinar_registration", async (req, res) => {
             organisation: req.body.organisation
         })
         const registered_spot = await reserve_spot_form_data.save();
-        res.status(201).render("index");
+        res.status(201).render("index", {
+            msg:"Submitted Successfully.",
+        });
     } catch (error) {
         // res.status(400).send(error);
         console.log(error);
     }
 })
 
-// post request for auery and feedback submission
+// post request for query and feedback submission
 
 app.post("/drop_query_feedback", async (req, res) => {
     try {
@@ -193,7 +198,9 @@ app.post("/drop_query_feedback", async (req, res) => {
             feedback: req.body.feedback
         })
         const registered_spot = await feedback_form_data.save();
-        res.status(201).render("index");
+         res.status(201).render("index", {
+             msg_drop: "Submitted Successfully.",
+         });
     } catch (error) {
         // res.status(400).send(error);
         console.log(error);
@@ -228,6 +235,49 @@ app.get('/show_feedback_queries', async (req, res) => {
     }
 })
 
+app.post('/send_mail', async(req, res) => {
+    const output = `
+    <p>you have new message</p>
+    <h3>Contact details</h3>
+    <ul>
+        <li>name: ${req.body.name}</li>
+        <li>email: ${req.body.email}</li>
+        <li>email: ${req.body.subject}</li>
+    </ul>
+
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+    `;
+
+     // create reusable transporter object using the default SMTP transport
+     let transporter = nodemailer.createTransport({
+         service: "gmail",
+         auth: {
+             user: 'studymaterials.mohit048@gmail.com', // generated ethereal user
+             pass: `${process.env.PASSWORD}`, // generated ethereal password
+         },
+         tls: {
+             rejectUnauthorized:true
+         }
+     });
+
+     // send mail with defined transport object
+     let info = transporter.sendMail({
+         from: '"Iha Medhas 👻"<mohtkumar3005@gmail.com>', // sender address
+         to: "itsmohit3005@gmail.com", // list of receivers
+         subject: `${req.body.subject}`, // Subject line
+         text: "Hello world?", // plain text body
+         html: output, // html body
+     });
+
+     console.log("Message sent: %s", info.messageId);
+     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+     // Preview only available when sending through an Ethereal account
+     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    res.render("index");
+})
 app.listen(port, () => {
     console.log(`server has started at http://localhost:${port}`);
 })

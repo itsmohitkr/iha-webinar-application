@@ -157,7 +157,7 @@ html {
 #submit_btn:hover {
     /* background-color: red; */
     /* fb8133 */
-    background-image: linear-gradient(to right, #fb8133, #e74e4b, #e74e4b);
+    background-image: linear-gradient(to right, #fb8133, #e74e4b, #fb8133);
 
 }
 
@@ -244,7 +244,7 @@ html {
 }
 
 #query_submit_btn:hover {
-    background-image: linear-gradient(to right, #fb8133, #e74e4b, #e74e4b);
+    background-image: linear-gradient(to right, #fb8133, #e74e4b, #fb8133);
 
 }
 
@@ -270,6 +270,47 @@ html {
     padding-top: 200px;
 }
 
+
+.contact_us{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.contact_us form{
+    width: 600px;
+}
+.contact_us form div{
+    width: 100%;
+    padding: 10px;
+}
+.contact_us .label{
+    color:red;
+    display: block;
+    text-align: left;
+    font-weight: 400;
+}
+.contact_us .input_field{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;  
+}
+#contact_submit{
+    background-image: linear-gradient(to right, #e74e4b, #fb8133, #e74e4b);
+    color: white;
+}
+#contact_submit:hover{
+     background-image: linear-gradient(to right, #fb8133, #e74e4b, #fb8133);
+}
+
+@media (max-width: 600px) {
+
+    .contact_us form {
+        width: 90%;
+    }
+}
 img {
     width: 300px;
     cursor: pointer;
@@ -410,3 +451,5 @@ h1 {
         min-width: 400px;
     }
 }
+
+

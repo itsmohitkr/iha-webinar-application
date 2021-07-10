@@ -46,7 +46,7 @@
                             <a class="nav-link" href="/about">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact us</a>
+                            <a class="nav-link" href="#contact">Contact Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/login"><i style="margin-left: 5px;"
@@ -226,6 +226,9 @@
                                 <button id="submit_btn" type="submit" name="submit">
                                     <span style="font-size:large;color: azure;">Register</span>
                                 </button>
+                                <div>
+                                        <div style="color: green;">{{msg}}</div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -368,6 +371,9 @@
                             <button id="query_submit_btn" type="submit" name="submit">
                                 <span style="font-size:large;color: azure;">Submit</span>
                             </button>
+                             <div>
+                                        <div style="color: green;">{{msg_drop}}</div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -449,8 +455,43 @@
         <!--footer part-->
 
         <div class="foorter_container" id="contact">
-            <div style="padding-top: 120px; text-align: center;">
+            <div style="padding-top: 100px; text-align: center;">
+                <div>
+                    <h3 style="color: white;">Contact Us <i style="margin-left: 20px;" class="far fa-paper-plane"></i> </h3>
+                </div>
                 <div style="display: inline-block; height: 4px; background-color: red; max-width: 35px; width: 100%;">
+                </div>
+
+                <div class="contact_us">
+                    <form action="/send_mail" method="POST">
+                        <div>
+                            <label for="username" class="label">Name</label>
+                            <input class="input_field" type="text" name="name" placeholder="Enter your name" id="username">
+
+                        </div>
+                        <div>
+
+                        <label for="uremail" class="label">Email</label>
+                        <input class="input_field" type="email" name="email" placeholder="Enter your contact email" id="uremail">
+
+                        </div>
+                        <div>
+
+                        <label for="subject" class="label">Subject</label>
+                        <input class="input_field" type="text" name="subject" placeholder="Subject details" id="subject">
+
+                        </div>
+                        <div>
+                            <label for="messagearea" class="label">Message</label>
+                            <textarea class="input_field" name="message" id="messagearea" cols="20" rows="3" placeholder="Enter your message"></textarea>
+
+                        </div>
+                        <div>
+                        <button class="input_field" id="contact_submit" type="submit">Submit</button> 
+
+                        </div>
+
+                    </form>
                 </div>
             </div>
             <div class="footer_row">
